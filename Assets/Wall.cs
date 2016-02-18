@@ -9,7 +9,7 @@ public class Wall : MonoBehaviour {
 	}
 	
 	public void Damaged(){
-		ZDebug.Log ("aaaaaaaaaaaaaa");
+		ZDebug.Log ("aaaaaaaaaaaaaaa");
 		SpriteRenderer s = GetComponent<SpriteRenderer> ();
 		s.sprite = damaged;
 	}
