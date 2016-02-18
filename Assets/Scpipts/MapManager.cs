@@ -16,10 +16,12 @@ public class MapManager : MonoBehaviour {
 	private List<Vector2> mPositions = new List<Vector2>();
 
 
-	public int Level = 1;
+	private int Level = 1;
 
 	// Use this for initialization
 	void Start () {
+		MDelegate.Pass += ReInitMap;
+		Level = GameManager.GetInstance ().Level;
 		InitMap ();
 	}
 	
@@ -57,7 +59,11 @@ public class MapManager : MonoBehaviour {
 		GeneratorWall();
 
 	}
-
+	public void ReInitMap(){
+		Destroy (Map);
+		InitMap ();
+	
+	}
 	private int GetRandom(int start,int end){
 		return Random.Range (start,end);
 	}
@@ -108,7 +114,8 @@ public class MapManager : MonoBehaviour {
 				return;
 			}
 			int index = GetRandom (0,prefabs.Length);
-			GameObject.Instantiate (prefabs[index],p,Quaternion.identity);
+			GameObject go = GameObject.Instantiate (prefabs[index],p,Quaternion.identity) as GameObject;
+			go.transform.parent = Map.transform;
 		}
 
 
