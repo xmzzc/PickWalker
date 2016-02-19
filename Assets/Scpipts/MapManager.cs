@@ -60,6 +60,8 @@ public class MapManager : MonoBehaviour {
 
 	}
 	public void ReInitMap(){
+		ZDebug.Log ("ReInitMap");
+		mPositions.Clear ();
 		Destroy (Map);
 		InitMap ();
 	

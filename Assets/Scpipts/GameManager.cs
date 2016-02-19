@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour {
 	public bool IsLogEnable = false;
 	public int Level = 1;
 	public int Food = 100;
+	private const int PASS_ADD_FOOD = 100;
 	private const int WALK_EAT_FOOD = 2;
 	private static GameManager _instance;
 
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour {
 
 	public void LevelPass(){
 		Level++;
+		Food += PASS_ADD_FOOD;
 		MDelegate.Pass ();
 
 	}
