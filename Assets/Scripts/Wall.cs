@@ -5,17 +5,15 @@ public class Wall : MonoBehaviour {
 	public int OffsetFood = -1;
 	public Sprite damaged;
 	private int mHp = 2 ;
-	private MDelegate.VoidIntDel mFcDel;
 	// Use this for initialization
 	void Start () {
-		mFcDel = GameManager.GetInstance ().FoodChange;
 
 	}
 	
 	public void Damaged(){
-		ZDebug.Log ("aaaaaaaaaaaaaaa");
+		ZDebug.Log ("wall damage");
 		mHp--;
-		mFcDel (OffsetFood);
+		ObjectEventDispatcher.dispatcher.dispatchEvent (new UEvent(EventTypeName.FOOD_CHANGE,OffsetFood),this);
 		if (mHp <= 0) {
 			Destroy (gameObject);
 		}

@@ -20,17 +20,18 @@ public class MapManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		MDelegate.Pass += ReInitMap;
+		MDelegate.ResetMap += ReInitMap;
 		Level = GameManager.GetInstance ().Level;
 		InitMap ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		
 	}
 
 	void InitMap(){
+		Level = GameManager.GetInstance ().Level;
 		Map = new GameObject("Map");
 		for(int x = 0;x<Rows;x++){
 
@@ -92,8 +93,8 @@ public class MapManager : MonoBehaviour {
 	}
 	private void GeneratorEnemy(){
 		int num = Level / 2 ;
-		num = num > 4 ? 4 : num;
-		InstantiateItem (mEnemyPrefab,num);
+		num = num > 3 ? 3 : num;
+		InstantiateItem (mEnemyPrefab,num+1);
 	}
 	private void GeneratorExit(){
 		

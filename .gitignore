@@ -5,3 +5,9 @@ pickwalker.sln
 pickwalker.userprefs
 Library/
 Temp/
+Assembly-CSharp-Editor-firstpass.csproj
+.vscode/launch.json
+.vscode/settings.json
+Assets/Plugins/Editor/VSCode.cs
+Assets/Plugins/Editor/VSCode.cs.meta
+Assets/Plugins/Editor.meta
